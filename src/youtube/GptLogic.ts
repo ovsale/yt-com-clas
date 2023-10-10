@@ -36,7 +36,7 @@ export async function classifyCommentsRu(description: string, groups: string[], 
     let commentsStr = JSON.stringify(comments, null, 2)
 
     const sysPropmpt = `
-Классифицируй комментарии к YouTube видео в одну из ${groups.length} групп.
+Найди наиболее подходящую группу для каждого комментария к YouTube видео.
 
 Описание видео:
 ${description}
@@ -55,14 +55,18 @@ ${commentsStr}
 
 Результат:
 `
-    console.log('-------------')
-    console.log("system: " + sysPropmpt)
-    console.log('-------------')
-    console.log("user: " + userPropmpt)
+    // console.log('-------------')
+    // console.log("system: " + sysPropmpt)
+    // console.log('-------------')
+    // console.log("user: " + userPropmpt)
 
     // console.log("request tokens: " + getTokensCnt(sysPropmpt + userPropmpt))
     let resStr = await callOpenAi(sysPropmpt, userPropmpt)
+    console.log(resStr)
     let res : number[] = JSON.parse(resStr!) 
+    if (res.length !== comments.length) {
+        console.log('!!!!!!!!!!')
+    }
     return res.map(r => r - 1)
 }
 
