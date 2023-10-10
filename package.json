@@ -1,0 +1,26 @@
+{
+  "name": "yt-com-clas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "youtube-download": "npx tsc && node dist/youtube/Download.js",
+    "youtube-convert": "npx tsc && node dist/youtube/Convert.js",
+    "youtube-classify": "npx tsc && node dist/youtube/Classify.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.8.3",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "axios": "^1.5.1",
+    "dotenv": "^16.3.1",
+    "openai": "^4.11.1",
+    "tiktoken": "^1.0.10"
+  }
+}

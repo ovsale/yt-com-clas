@@ -1,0 +1,15 @@
+
+# Node.js related
+node_modules/
+npm-debug.log
+
+# TypeScript output
+dist/
+
+.env
+
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
