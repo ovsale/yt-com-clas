@@ -55,10 +55,10 @@ ${commentsStr}
 
 Результат:
 `
-    // console.log('-------------')
-    // console.log("system: " + sysPropmpt)
-    // console.log('-------------')
-    // console.log("user: " + userPropmpt)
+    console.log('-------------')
+    console.log("system: " + sysPropmpt)
+    console.log('-------------')
+    console.log("user: " + userPropmpt)
 
     // console.log("request tokens: " + getTokensCnt(sysPropmpt + userPropmpt))
     let resStr = await callOpenAi(sysPropmpt, userPropmpt)

@@ -20,18 +20,18 @@ let description = `
 Узнайте, кто покажет лучший результат в новом тесте с Мэтом на carwow!
 `
 
+let groups = [
+    'нравятся электромобили',
+    'предпочитает автомобили с ДВС или не нравятся электромобили',
+    'другое'
+]
+
 await doClassifyComment()
 // await doClassifyComments()
 
 /***************************************************************************/
 
 async function doClassifyComment() {
-    let groups = [
-        'нравятся электромобили',
-        'предпочитает автомобили с ДВС или не нравятся электромобили',
-        'другое'
-    ]
-
     let res : number[] = []
     for (let i = 0; i < comments.length; i++) {
         let comment = comments[i]
@@ -49,13 +49,7 @@ async function doClassifyComment() {
 /***************************************************************************/
 
 async function doClassifyComments() {
-    let groups = [
-        'нравятся электромобили',
-        'предпочитает автомобили с ДВС или не нравятся электромобили',
-        'другое'
-    ]
-
-    let res = await batchClassifyCommentsRu(description, groups, comments.map(comment => comment.text), 10)
+    let res = await batchClassifyComments(description, groups, comments.map(comment => comment.text), 10)
     // let res = comments.map(comment => comment.res)
     console.log(res)
 
@@ -63,7 +57,7 @@ async function doClassifyComments() {
     console.log('cost: ' + getCost())
 }
 
-async function batchClassifyCommentsRu(description: string, groups: string[], comments: string[], N: number)
+async function batchClassifyComments(description: string, groups: string[], comments: string[], N: number)
         : Promise<number[]> {
     let result: number[] = [];
     for (let i = 0; i < comments.length; i += N) {
